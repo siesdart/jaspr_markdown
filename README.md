@@ -67,3 +67,10 @@ const markdown = '''
 
 See all examples code [here](example).
 
+### Notice
+
+`jaspr_markdown` uses `dart:mirrors`, so AOT compilation is not supported. Therefore, you need to use JIT compilation when building Jaspr as server mode:
+
+```bash
+jaspr build -t jit-snapshot
+```
