@@ -1,0 +1,20 @@
+name: jaspr_markdown_example
+description: A new jaspr project.
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  jaspr: ^0.13.3
+  jaspr_markdown:
+    path: ../
+
+dev_dependencies:
+  build_runner: ^2.4.11
+  build_web_compilers: ^4.0.10
+  jaspr_builder: ^0.13.3
+  lints: ^4.0.0
+
+jaspr:
+  mode: static
