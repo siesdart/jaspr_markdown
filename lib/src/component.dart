@@ -1,6 +1,6 @@
 import 'dart:mirrors';
 
-import 'package:jaspr/jaspr.dart';
+import 'package:jaspr/jaspr.dart' hide Document;
 import 'package:jaspr_markdown/src/ast.dart' as md;
 import 'package:markdown/markdown.dart' as md show Element, Text;
 import 'package:markdown/markdown.dart' hide Element, Text;
