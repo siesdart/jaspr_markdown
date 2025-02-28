@@ -1,7 +1,7 @@
 name: jaspr_markdown
 description: A Markdown renderer for Jaspr. It lets you use Jaspr components in
   Markdown. You can import components like MDX.
-version: 0.1.3
+version: 0.1.4
 homepage: https://github.com/siesdart/jaspr_markdown
 repository: https://github.com/siesdart/jaspr_markdown
 issue_tracker: https://github.com/siesdart/jaspr_markdown/issues
@@ -11,11 +11,12 @@ environment:
 
 dependencies:
   html: ^0.15.5
-  jaspr: ^0.17.0
+  jaspr: ^0.18.0
   markdown: ^7.3.0
 
 dev_dependencies:
-  test: ^1.25.14
+  mockito: ^5.4.5
+  test: ^1.25.15
   very_good_analysis: ^7.0.0
 
 topics:
