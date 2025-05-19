@@ -11,7 +11,7 @@ environment:
 
 dependencies:
   html: ^0.15.5
-  jaspr: ^0.18.0
+  jaspr: ">=0.18.0 <0.20.0"
   markdown: ^7.3.0
 
 dev_dependencies:
