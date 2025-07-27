@@ -1,3 +1,6 @@
+// dart format off
+// ignore_for_file: type=lint
+
 // GENERATED FILE, DO NOT MODIFY
 // Generated with jaspr_builder
 
@@ -19,4 +22,4 @@ import 'package:jaspr/jaspr.dart';
 ///   runApp(...);
 /// }
 /// ```
-final defaultJasprOptions = JasprOptions();
+JasprOptions get defaultJasprOptions => JasprOptions();

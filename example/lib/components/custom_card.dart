@@ -37,9 +37,9 @@ class CustomCard extends StatelessComponent {
             ...children!,
           ]),
       ],
-      styles: Styles.box(
-        border: Border.all(_dotted ? BorderSide.dotted() : BorderSide.solid()),
-        padding: EdgeInsets.all(24.px),
+      styles: Styles(
+        border: Border(style: _dotted ? BorderStyle.dotted : BorderStyle.solid),
+        padding: Spacing.all(24.px),
         radius: BorderRadius.circular(12.px),
       ),
     );
