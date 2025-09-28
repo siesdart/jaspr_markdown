@@ -34,8 +34,8 @@ class CustomCard extends StatelessComponent {
 
 class App extends StatelessComponent {
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield Markdown(
+  Component build(BuildContext context) {
+    return Markdown(
       markdown: markdown,
       blockSyntaxes: [
         ComponentBlockSyntax(importComponents: const [CustomCard])

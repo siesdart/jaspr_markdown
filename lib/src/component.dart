@@ -3,7 +3,7 @@ import 'dart:mirrors';
 import 'package:jaspr/jaspr.dart' hide Document;
 import 'package:jaspr_markdown/src/ast.dart' as md;
 import 'package:markdown/markdown.dart' as md show Element, Text;
-import 'package:markdown/markdown.dart' hide Element, Text;
+import 'package:markdown/markdown.dart';
 
 /// Represents a Markdown document.
 class Markdown extends StatelessComponent {
@@ -18,40 +18,35 @@ class Markdown extends StatelessComponent {
   final Iterable<BlockSyntax>? blockSyntaxes;
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield* _buildMarkdown(
+  Component build(BuildContext context) {
+    return Component.fragment(_buildMarkdown(
       Document(
         blockSyntaxes: blockSyntaxes,
         extensionSet: ExtensionSet.gitHubWeb,
       ).parse(markdown),
-    );
+    ));
   }
 }
 
-Iterable<Component> _buildMarkdown(Iterable<Node> nodes) sync* {
-  for (final node in nodes) {
-    if (node is md.Text) {
-      yield raw(node.text);
-    } else if (node is md.Component) {
-      yield reflectClass(node.type)
-          .newInstance(node.constructorName, [], _buildNamedArguments(node))
-          .reflectee as Component;
-    } else if (node is md.Element) {
-      if (node.tag == '_') {
-        yield* _buildMarkdown(node.children!);
-      } else {
-        yield DomComponent(
-          tag: node.tag,
-          id: node.generatedId,
-          attributes: node.attributes,
-          children: node.children != null
-              ? _buildMarkdown(node.children!).toList()
-              : null,
-        );
-      }
-    }
-  }
-}
+List<Component> _buildMarkdown(Iterable<Node> nodes) => nodes
+    .map(
+      (node) => switch (node) {
+        md.Text _ => raw(node.text),
+        md.Component _ => reflectClass(node.type)
+            .newInstance(node.constructorName, [], _buildNamedArguments(node))
+            .reflectee as Component,
+        md.Element _ => Component.element(
+            tag: node.tag,
+            id: node.generatedId,
+            attributes: node.attributes,
+            children: node.children != null
+                ? _buildMarkdown(node.children!).toList()
+                : null,
+          ),
+        _ => throw Exception('Unknown node type ${node.runtimeType}'),
+      },
+    )
+    .toList();
 
 Map<Symbol, dynamic> _buildNamedArguments(md.Component component) {
   final constructor =

@@ -23,8 +23,8 @@ class CustomCard extends StatelessComponent {
   final bool _dotted;
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield div(
+  Component build(BuildContext context) {
+    return div(
       [
         span([text('foo: '), text(foo)]),
         br(),
