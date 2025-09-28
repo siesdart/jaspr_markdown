@@ -35,14 +35,16 @@ List<Component> _buildMarkdown(Iterable<Node> nodes) => nodes
         md.Component _ => reflectClass(node.type)
             .newInstance(node.constructorName, [], _buildNamedArguments(node))
             .reflectee as Component,
-        md.Element _ => Component.element(
-            tag: node.tag,
-            id: node.generatedId,
-            attributes: node.attributes,
-            children: node.children != null
-                ? _buildMarkdown(node.children!).toList()
-                : null,
-          ),
+        md.Element _ => node.tag == 'fragment'
+            ? Component.fragment(_buildMarkdown(node.children!))
+            : Component.element(
+                tag: node.tag,
+                id: node.generatedId,
+                attributes: node.attributes,
+                children: node.children != null
+                    ? _buildMarkdown(node.children!).toList()
+                    : null,
+              ),
         _ => throw Exception('Unknown node type ${node.runtimeType}'),
       },
     )

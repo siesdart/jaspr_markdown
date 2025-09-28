@@ -30,7 +30,7 @@ class ComponentBlockSyntax extends HtmlBlockSyntax {
     ).parseFragment();
     final nodes = _buildElements(fragment.nodes).toList();
     return nodes.length > 1
-        ? Element('_', nodes)
+        ? Element('fragment', nodes)
         : nodes.firstOrNull ?? Text('');
   }
 
