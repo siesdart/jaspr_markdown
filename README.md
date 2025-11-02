@@ -1,3 +1,15 @@
+# Deprecated
+
+**This package is now deprecated and no longer maintained.**
+
+Jaspr now has an official package for handling content, including Markdown, called [`jaspr_content`](https://pub.dev/packages/jaspr_content). It is recommended to migrate to `jaspr_content` for future projects.
+
+For migration examples, you can refer to the following links:
+- https://github.com/siesdart/jaspr-portfolio/blob/main/apps/portfolio/lib/components/markdown_article.dart
+- https://github.com/siesdart/jaspr-portfolio/blob/main/apps/portfolio/lib/components/sections/skill.dart
+
+---
+
 [![Build](https://img.shields.io/github/actions/workflow/status/siesdart/jaspr_markdown/build.yml)](https://github.com/siesdart/jaspr_markdown/actions/workflows/build.yml)
 [![Pub](https://img.shields.io/pub/v/jaspr_markdown)](https://pub.dev/packages/jaspr_markdown)
 [![License](https://img.shields.io/github/license/siesdart/jaspr_markdown?color=blue)](https://github.com/siesdart/jaspr_markdown/blob/main/LICENSE)

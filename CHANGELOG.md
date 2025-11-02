@@ -1,3 +1,9 @@
+## 0.2.0
+
+**Deprecated**
+
+This package is now deprecated and no longer maintained. It is recommended to migrate to `jaspr_content`.
+
 ## 0.1.6
 
 `jaspr` upgraded to `0.21.3`
